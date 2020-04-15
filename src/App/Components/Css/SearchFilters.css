@@ -1,0 +1,599 @@
+.searchSectionFiltersContainer {
+	position: relative;
+	width: 96%;
+	z-index: 1;
+}
+
+.filtersContainer {
+	position: absolute;
+	top: -30px;
+	width: 100%;
+	height: 115px;
+	display: grid;
+	grid-template-columns: auto auto auto;
+	justify-items: center;
+	align-items: center;
+	padding: 42px 0 16px;
+	background-color: #001ADC;
+	box-shadow: 0 0 4px 2px #00D2FF;
+	transition-duration: .24s;
+}
+
+.filtersSubContainer {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	border: 1px solid #00D2FF;
+	border-radius: 4px;
+	box-shadow: 0 0 4px 2px #00D2FF;
+}
+
+.filtersDiodeButtonContainer {
+	position: absolute;
+	bottom: -27px;
+	left: 50%;
+	width: 34px;
+	height: 26px;
+	padding: 4px 1px 0;
+	margin-left: -17px;
+	background-color: #909DA3;
+	box-shadow: 0 0 4px 3px rgba(220, 0, 0, .8);
+	z-index: -1;
+}
+
+.diodeButtonContainer {
+	position: relative;
+	width: 32px;
+	margin: 2px 0 3px;
+	z-index: 1;
+}
+
+.diodeButton {
+	position: relative;
+	padding-top: 0px;
+	display: flex;
+	flex-direction: row;
+}
+
+.onOffImage {
+	position: absolute;
+	left: 3px;
+	top: 2px;
+	height: 12px;
+}
+
+.diode {
+	position: absolute;
+	right: 5px;
+	top: 4px;
+	width: 8px;
+	height: 8px;
+	background-color: #007300;
+	border-radius: 2px;
+	box-shadow: inset 0 0 2px 1px rgba(0, 0, 0, .4);
+	transition-duration: .05s;
+}
+
+.filtersDiodeButtonAngle1, .filtersDiodeButtonAngle2 {
+	position: absolute;
+	transform: rotateZ(45deg);
+	width: 30px;
+	height: 30px;
+}
+
+.filtersDiodeButtonAngle1 {
+	left: -15px;
+	bottom: 6px;
+}
+
+.filtersDiodeButtonAngle2 {
+	right: -15px;
+	bottom: 6px;
+}
+
+.filtersDiodeButtonCover {
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+.filterOptionTube {
+	position: absolute;
+	left: 50%;
+	top: -37px;
+	width: 1px;
+	height: 124px;
+	background-color: #00D2FF;
+	box-shadow: 0 0 2px 1px #00D2FF;
+}
+
+.filterOptionCover {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	background-color: #909DA3;
+	border-radius: 4px;
+}
+
+.filterOptionTitle {
+	position: relative;
+	margin: 2px 0 3px;
+	font-size: .6em;
+	background-color: #909DA3;
+	z-index: 1;
+}
+
+.filtersMenuContainer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 37px;
+	transition-duration: .24s;
+	z-index: 1;
+}
+
+.filterTopSectionTitleContainer {
+	position: absolute;
+	left: 50%;
+	top: -14px;
+	width: 100px;
+	margin-left: -50px;
+	padding: 1px 6px;
+	opacity: 1;
+}
+
+.filterTopSectionTitle {
+	z-index: 1;
+}
+
+.filtersTopTitle {
+	width: 100%;
+	padding-top: 1px;
+	font-size: 1.45em;
+}
+
+.filtersTopMenu {
+	position: absolute;
+	top: 0;
+	left: -4px;
+	right: -4px;
+	height: 8px;
+	background-color: #909DA3;
+}
+
+
+/*////////////////////////////////////////////////////////////////////////////////*/
+
+
+.filtersMenuAngle, .filtersMenuSide, .filtersTopTitleSide {
+	position: absolute;
+	background-color: #909DA3;
+	box-shadow: 0 0 4px 3px rgba(220, 0, 0, .8);
+}
+
+.filtersMenuAngle {
+	transform: rotateZ(45deg);
+}
+
+.filtersMenuAngleS {
+	width: 6px;
+	height: 6px;
+}
+
+.filtersMenuAngleM {
+	width: 10px;
+	height: 10px;
+}
+
+.filtersTopMenuAngle1 {
+	left: 2px;
+	top: -5px;
+}
+
+.filtersTopMenuAngle2 {
+	right: 2px;
+	top: -5px;
+}
+
+.filtersTopMenuAngle3 {
+	right: 1px;
+	bottom: -9px;
+}
+
+.filtersTopMenuAngle4 {
+	right: -5px;
+	top: -5px;
+	box-shadow: 0 0 2px 1px rgba(220, 0, 0, .8);
+}
+
+.filtersTopMenuAngle6 {
+	left: 1px;
+	bottom: -9px;
+}
+
+.filtersTopMenuSide1 {
+	left: 7px;
+	right: 7px;
+	top: -7px;
+	height: 10px;
+}
+
+.filtersTopMenuSide2 {
+	left: 4px;
+	right: 4px;
+	bottom: -3px;
+	height: 10px;
+	box-shadow: 0 0 2px 1px rgba(220, 0, 0, .8);
+}
+
+.filtersTopMenuSide3 {
+	right: 0;
+	bottom: -6px;
+	width: 4px;
+	height: 13px;
+}
+
+.filtersTopMenuSide4 {
+	left: 0;
+	bottom: -6px;
+	width: 4px;
+	height: 13px;
+}
+
+.filtersTopTitleAngle1, .filtersTopTitleAngle2 {
+	width: 19px;
+	height: 19px;
+}
+
+.filtersTopTitleAngle1 {
+	top: -1px;
+	left: -14px;
+}
+
+.filtersTopTitleAngle2 {
+	top: -1px;
+	right: -14px;
+}
+
+.filtersTopTitleSide {
+	top: -5px;
+	left: -4px;
+	width: 108px;
+	height: 10px;
+}
+
+.filtersMenuSidesContainer {
+	position: absolute;
+	left: 4px;
+	right: 4px;
+	bottom: -10px;
+	height: 7px;
+	display: grid;
+	grid-template-columns: auto 65px auto;
+}
+
+.filtersMenuSidesSubContainer {
+	position: relative;
+	width: 100%;
+	background-color: #909DA3;
+	box-shadow:  0 0 4px 3px rgba(220, 0, 0, .8);
+}
+
+.filtersTopMenuAngle5 {
+	left: -5px;
+	top: -5px;
+	box-shadow: 0 0 2px 1px rgba(220, 0, 0, .8);
+}
+
+.filtersMenuCover {
+	position: absolute;
+	background-color: #909DA3;
+	z-index: 1;
+}
+
+.filtersTopMenuCover1 {
+	left: 7px;
+	right: 7px;
+	top: -7px;
+	height: 18px;
+}
+
+.filtersTopMenuCover2 {
+	right: 0px;
+	top: -0px;
+	width: 10px;
+	height: 14px;
+}
+
+.filtersTopMenuCover3 {
+	left: 0px;
+	top: -0px;
+	width: 10px;
+	height: 14px;
+}
+
+.filtersTopMenuCover4 {
+	left: 1px;
+	bottom: -8px;
+	width: 6px;
+	height: 6px;
+}
+
+.filtersTopMenuCover5 {
+	right: 1px;
+	bottom: -8px;
+	width: 6px;
+	height: 6px;
+}
+
+.filtersTopMenuCover6 {
+	right: -5px;
+	bottom: 2px;
+	width: 10px;
+	height: 10px;
+}
+
+.filtersTopMenuCover7 {
+	left: 0px;
+	right: 0;
+	bottom: 0px;
+	height: 20px;
+}
+
+.filtersTopMenuCover8 {
+	left: -5px;
+	bottom: 2px;
+	width: 10px;
+	height: 10px;
+}
+
+.filtersTopMenuCover9 {
+	left: 0px;
+	right: 0;
+	bottom: 0px;
+	height: 20px;
+}
+
+.filtersTopMenuCover10 {
+	left: -4px;
+	top: -5px;
+	width: 108px;
+	height: 14px;
+}
+
+.filtersTopMenuCover4, .filtersTopMenuCover5, .filtersTopMenuCover6, .filtersTopMenuCover8 {
+	transform: rotateZ(45deg);
+}
+
+.filterTopMenuBolt1, .filterTopMenuBolt2, .filterTopMenuBolt3, .filterTopMenuBolt4 {
+	
+}
+
+.filterTopMenuBolt1 {
+	left: -20px;
+	bottom: -6px;
+}
+
+.filterTopMenuBolt2 {
+	right: -19px;
+	bottom: -6px;
+}
+
+.filterTopMenuBolt3{
+	left: 8px;
+}
+
+.filterTopMenuBolt4 {
+	right: 8px;
+}
+
+
+/*///////////////////////////////////////////////////////////////////////////////////*/
+
+
+.filtersBottomMenu {
+	position: absolute;
+	left: -4px;
+	right: -4px;
+	bottom: 0;
+	height: 15px;
+	background-color: #909DA3;
+	box-shadow: 0 0 4px 3px rgba(220, 0, 0, .8);
+	transition-duration: .24s;
+}
+
+.filtersBottomMenuAngle1 {
+	left: 1px;
+	top: -2px;
+}
+
+.filtersBottomMenuAngle2 {
+	left: 1px;
+	top: -2px;
+}
+
+.filtersBottomMenuAngle4 {
+	right: 1px;
+	top: -2px;
+}
+
+.filtersBottomMenuAngle5 {
+	right: 2px;
+	bottom: -5px;
+}
+
+.filtersBottomMenuAngle6 {
+	left: 2px;
+	bottom: -5px;
+}
+
+.filtersBottomMenuSide1 {
+	top: -3px;
+	left: 4px;
+	right: 4px;
+	height: 8px;
+}
+
+.filtersBottomMenuSide2 {
+	bottom: -7px;
+	left: 7px;
+	right: 7px;
+	height: 8px;
+}
+
+.filtersBottomMenuSidesContainer {
+	position: absolute;
+	bottom: -7px;
+	left: 50%;
+	width: 48px;
+	height: 1px;
+	margin-left: -24px;
+}
+
+.filtersBottomMenuAngle7 {
+	left: 0px;
+	bottom: -5px;
+}
+
+.filtersBottomMenuAngle8 {
+	right: 0px;
+	bottom: -5px;
+}
+
+.filtersBottomMenuSide3 {
+	bottom: -7px;
+	left: 5px;
+	right: 5px;
+	height: 8px;
+}
+
+.filtersBottomMenuButtonContainer {
+	position: absolute;
+	top: -10px;
+	left: 50%;
+	width: 50px;
+	height: 20px;
+	margin-left: -25px;
+	box-shadow: 0 0 4px 3px rgba(220, 0, 0, .8);
+	background-color: #909DA3;
+}
+
+.filtersBottomMenuButton {
+	position: relative;
+	width: 100%;
+	height: 36px;
+	z-index: 1;
+}
+
+.filtersButtonArrow {
+	width: 10px;
+	margin: 0px 1px 1px;
+	transition-duration: .1s;
+}
+
+.filtersBottomMenuButtonAngle1 {
+	left: -5.5px;
+	top: 2px;
+}
+
+.filtersBottomMenuButtonAngle2 {
+	right: -5.5px;
+	top: 2px;
+}
+
+.filtersBottomMenuButtonCover {
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	height: 8px;
+}
+
+.filtersBottomMenuCover1 {
+	left: 4px;
+	right: 4px;
+	top: -3px;
+	height: 5px;
+	margin-top: 2px solid rgba(255, 255, 255, .5);
+}
+
+.filtersBottomMenuCover2 {
+	left: 0;
+	right: 0;
+	top: 1px;
+	height: 13px;
+}
+
+.filtersBottomMenuCover3 {
+	left: 7px;
+	right: 8px;
+	bottom: -7px;
+	height: 13px;
+}
+
+.filtersBottomMenuCover4 {
+	left: 6px;
+	right: 6px;
+	bottom: -7px;
+	height: 13px;
+}
+
+.bottomMenuRidgesContainer {
+	position: absolute;
+	bottom: -1px;
+	left: 50%;
+	width: 40px;
+	height: 20px;
+	margin-left: -20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	z-index: 2;
+}
+
+.bottomMenuRidges {
+	height: 1px;
+	background-color: rgba(0, 0, 0, .2);
+	box-shadow: 0 1px 1px 1px rgba(0, 0, 0, .1);
+	border-radius: 2px;
+}
+
+.bottomMenuRidge1 {
+	width: 100%;
+}
+
+.bottomMenuRidge2 {
+	width: 80%;
+}
+
+.bottomMenuRidge3 {
+	width: 60%;
+}
+
+.filterBottomMenuBolt1, .filterBottomMenuBolt2, .filterBottomMenuBolt3, .filterBottomMenuBolt4 {
+	top: 3px;
+}
+
+.filterBottomMenuBolt1 {
+	right: -30px;
+	top: 13px;
+}
+
+.filterBottomMenuBolt2 {
+	left: -30px;
+	top: 13px;
+}
+
+.filterBottomMenuBolt3 {
+	left: 8px;
+}
+
+.filterBottomMenuBolt4 {
+	right: 8px;
+}

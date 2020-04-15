@@ -1,0 +1,27 @@
+.Header {
+	width: 100%;
+	height: 54px;
+	z-index: 2;
+}
+
+.HeaderTitleContainer {
+	position: absolute;
+	width: 100%;
+	height: 39px;
+	margin-top: 12px;
+	padding: 0 10px 0 166px;
+	display: flex;
+	background-color: #001ADC;
+	box-shadow: 0 0 4px 3px rgba(220, 0, 0, .8);
+	transition-duration: .24s;
+}
+
+.HeaderTitle {
+	width: 100%;
+	height: 29px;
+	line-height: 33px;
+	margin: auto;
+	font-size: 1.2em;
+	letter-spacing: -1px;
+	transition-duration: .24s;
+}

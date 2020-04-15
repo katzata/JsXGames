@@ -1,0 +1,144 @@
+.arrowSelectorContainer {
+	position: relative;
+	width: 78px;
+	height: 37px;
+	padding: 0px 2px 2px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #909DA3;
+	justify-content: space-between;
+}
+
+.arrowSelectorTextContainer {
+	position: relative;
+	width: 100%;
+	height: 18px;
+	background-color: black;
+	font-size: 1em;
+}
+
+.arrowSelectorContainerCoverL, .arrowSelectorContainerCoverR {
+	position: absolute;
+	width: 18px;
+	height: 18px;
+	top: 0;
+	background-color: black;
+	border-radius: 20%;
+}
+
+.arrowSelectorContainerCoverL {
+	left: -2px;
+}
+
+.arrowSelectorContainerCoverR {
+	right: -2px;
+}
+
+.arrowSelector {
+	position: relative;
+	left: 1px;
+	right: 1px;
+	top: 3px;
+	width: 98%;
+	height: 12px;
+	padding-left: 2px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	font-size: .4em;
+	background-color: black;
+	border-width: 0px;
+	box-shadow: 0 0 4px 0px rgba(220, 220, 220, .8);
+	overflow: hidden;
+}
+
+.arrowSelector:focus {
+	outline: none;
+}
+
+.arrowSelectorOption {
+	display: flex;
+	width: 73px;
+	height: 8px;
+	margin: 0 12px;
+	font-size: 7.2px;
+	line-height: 9px;
+	list-style-type: none;
+}
+
+.arrowSelectorOption1 {
+	opacity: 1;
+}
+
+.arrowSelectorOption2 {
+	opacity: 1;
+}
+
+.arrowSelectorOption3 {
+	opacity: 1;
+}
+
+.arrowSelectorArrowContainer {
+	position: relative;
+	width: 70px;
+	height: 12px;
+	display: flex;
+	justify-content: center;
+}
+
+.arrowSelectorArrowContainerL, .arrowSelectorArrowContainerR {
+	position: absolute;
+	width: 26px;
+	height: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 1px 2px 1px rgba(0, 0, 0, .5);
+	background-color: rgba(0, 0, 0, .05);
+	border-radius: 2px;
+}
+
+.arrowSelectorArrowContainerL {
+	left: -2px;
+}
+
+.arrowSelectorArrowContainerR {
+	right: -2px;
+}
+
+.arrowSelectorArrowL, .arrowSelectorArrowR {
+	width: 8px;
+	height: 8px;
+	background-image: url("../../img/doubleArrow.svg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	transform: scaleX(2.8);
+	border-radius: 2px;
+}
+
+.arrowSelectorArrowR {
+	transform: scaleX(2.8) rotateZ(180deg);
+}
+
+.arrowSelectorArrowContainerL:active, .arrowSelectorArrowContainerR:active {
+	box-shadow: 0 1px 2px 0px rgba(0, 0, 0, .8);
+}
+
+.arrowSelectorArrowDividerContainer {
+	width: 8px;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 2px;
+	box-shadow: 0 1px 2px 1px rgba(0, 0, 0, .4);
+}
+
+.arrowSelectorArrowDivider {
+	width: 4px;
+	height: 9px;
+	background-color: #E7E7E7;
+	border-radius: 2px;
+}

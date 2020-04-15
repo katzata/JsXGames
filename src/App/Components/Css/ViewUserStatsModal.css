@@ -1,0 +1,77 @@
+.viewUserStatsContainer {
+	background-color: rgba(0, 0, 0, .7);
+	transition-duration: .08s;
+}
+
+.viewUserStatsContentContainer {
+	width: 100%;
+	/*display: flex;
+	flex-direction: column;
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: auto auto;
+	grid-row-gap: 6%;*/
+	display: inline-block;
+}
+
+.userStatInternal {
+	position: relative;
+	width: 100%;
+	height: 140px;
+	padding: 6px 8px 6px;
+	display: flex;
+	flex-direction: column;
+	font-size: .6em;
+	box-shadow: 0 0 2px 1px #00D2FF;
+}
+
+.viewUserStatsGames {
+	position: relative;
+	padding: 0 2px 0 2px;
+}
+
+.viewUserStatsGameResults {
+	margin: 2px 0;
+	display: flex;
+	flex-direction: column;
+	font-size: 1.05em;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	white-space: nowrap;
+	z-index: 1;
+}
+
+.gameResult {
+	padding: 8px 0 8px 5px;
+	text-align: left;
+	box-shadow: inset 0 0 3px 1px #00D2FF;
+}
+
+.gameResult:nth-of-type(1) {
+	margin-top: 8px;
+}
+
+.viewUserGameStats {
+	margin-top: 18px;
+}
+
+.viewUserStatsLabel {
+	position: absolute;
+	left: 10px;
+	top: -8px;
+	padding: 2px 4px;
+	font-size: 1.1em;
+	background-color: #001ADC;
+	box-shadow: 0 0 2px 1px #00D2FF;
+	z-index: 2;
+}
+
+.statTitle {
+	margin-top: 10px;
+	text-align: left;
+}
+
+.viewUserStatResult {
+	margin-top: 2px;
+	text-align: right;
+}

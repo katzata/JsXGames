@@ -1,0 +1,44 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Press Start 2P', cursive;
+	color: #E7E7E7;
+}
+
+html {
+	height: 100vh;
+}
+
+body {
+	background-color: black;
+	height: 100%;
+}
+
+#root {
+	height: 100%;
+}
+
+.App {
+	height: 100%;
+	text-align: center;
+	display: grid;
+	grid-template-rows: 54px auto 74px;
+	overflow-x: hidden;
+}
+
+@media screen and (max-height: 450px) {
+	.App {
+		grid-template-rows: 0px 100% 74px;
+		overflow-y: hidden;
+	}
+
+	.Header {
+		width: 116%;
+		transform: translate(-60px, -51px);
+	}
+
+	.Footer {
+		width: 104%;
+	}
+}
