@@ -1,0 +1,33 @@
+$scanLineWidth: 1px;
+
+.statusIndicator {
+    position: relative;
+    display: flex;
+    background-color: black;
+    border-radius: 50%;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, .6);
+    overflow: hidden;
+
+    .scanLines {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-size: 100% $scanLineWidth * 2;
+        -webkit-background-size: 100% $scanLineWidth * 2;
+        -moz-background-size: 100% $scanLineWidth * 2;
+    }
+
+    >svg {
+        width: 80%;
+        height: 80%;
+        margin: auto;
+
+        * {
+            fill: inherit;
+            stroke: inherit;
+        }
+    }
+}
