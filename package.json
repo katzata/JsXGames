@@ -9,7 +9,8 @@
     "dev": "vite --host --port 3000",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "commit": "git add . && git commit -m"
   },
   "dependencies": {
     "react": "^18.2.0",
