@@ -39,4 +39,4 @@ jobs:
         server: ${{ secrets.STAGING_SERVER }}
         username: ${{ secrets.STAGING_USERNAME }}
         password: ${{ secrets.STAGING_PASSWORD }}
-        local-dir: build/
+        local-dir: dist/
