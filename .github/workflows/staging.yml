@@ -1,0 +1,42 @@
+name: Deploy from ver2.0
+run-name: ${{ github.actor }} is deploying from ver2.0 🚀
+
+on:
+  push:
+    branches: [ ver2.0 ]
+  pull_request:
+    branches: [ ver2.0 ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Run the tests
+      run: npm test
+
+    - name: Build
+      run: npm run build
+
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.3.3
+      with:
+        server: ${{ secrets.STAGING_SERVER }}
+        username: ${{ secrets.STAGING_USERNAME }}
+        password: ${{ secrets.STAGING_PASSWORD }}
+        local-dir: build/

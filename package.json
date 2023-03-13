@@ -4,6 +4,7 @@
   "version": "2.0.0",
   "type": "module",
   "author": "Kamen Kashchiev",
+  "homepage": "https://test-domain@kashchiev.com",
   "scripts": {
     "dev": "vite --host --port 3000",
     "build": "tsc && vite build",
