@@ -33,10 +33,13 @@ jobs:
     - name: Build
       run: npm run build
 
+    - name: List output files
+      run: find build/ -print
+
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
       with:
-        server: test-domain.kashchiev.com
+        server: ${{ secrets.STAGING_SERVER }}
         username: ${{ secrets.STAGING_USERNAME }}
         password: ${{ secrets.STAGING_PASSWORD }}
         local-dir: dist/
