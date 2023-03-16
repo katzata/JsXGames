@@ -1,0 +1,7 @@
+@use "../../../mixins/colors";
+
+.glassPanel {
+    display: inline;
+    border-radius: 3px;
+    box-shadow: colors.$mech-indentation;
+}

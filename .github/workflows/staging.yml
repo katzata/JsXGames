@@ -1,11 +1,11 @@
 name: Deploy from ver2.0
-run-name: ${{ github.actor }} is deploying from ver2.0 🚀
+run-name: ${{ github.actor }} is staging from ${{ github.branch }} 🚀
 
-on:
-  push:
-    branches: [ ver2.0 ]
-  pull_request:
-    branches: [ ver2.0 ]
+# disabling for the moment as there is nothing significant to stage.
+
+#on:
+#  push:
+#    branches: [ ver2.0 ]
 
 jobs:
   build:
@@ -36,7 +36,7 @@ jobs:
     - name: List output files
       run: find dist/ -print
 
-    - name: 📂 Sync files
+    - name: 📂 Deploy
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
       with:
         server: ${{ secrets.STAGING_SERVER }}

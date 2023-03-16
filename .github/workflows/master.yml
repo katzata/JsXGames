@@ -4,8 +4,6 @@ run-name: ${{ github.actor }} is deploying from master 🚀
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 jobs:
   build:
@@ -17,7 +15,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Set up Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
@@ -25,7 +23,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: Install dependencies
-      run: npm install
+      run: npm ci
 
     - name: Run the tests
       run: npm test
@@ -33,27 +31,15 @@ jobs:
     - name: Build
       run: npm run build
 
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.0.0
-      with:
-        server: voyager.superhosting.bg
-        username: ${{ secrets.STAGING_USERNAME }}
-        password: ${{ secrets.STAGING_PASSWORD }}
-        # server-dir: /public_html/production.watch-learn.com/
+    - name: List output files
+      run: find dist/ -print
 
-# on: [push]
-# jobs:
-#   Explore-GitHub-Actions:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-#       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-#       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-#       - name: Check out repository code
-#         uses: actions/checkout@v3
-#       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-#       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-#       - name: List files in the repository
-#         run: |
-#           ls ${{ github.workspace }}
-#       - run: echo "🍏 This job's status is ${{ job.status }}."
+    - name: 📂 Deploy
+      uses: SamKirkland/FTP-Deploy-Action@4.3.3
+      with:
+        server: ${{ secrets.MASTER_SERVER }}
+        port: ${{ secrets.MASTER_PORT }}
+        username: ${{ secrets.MASTER_USERNAME }}
+        password: ${{ secrets.MASTER_PASSWORD }}
+        protocol: ftps
+        local-dir: dist/
