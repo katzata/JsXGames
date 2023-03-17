@@ -2,11 +2,14 @@ import "./App.css";
 
 import StatusIndicator from "./components/visual/StatusIndicator/StatusIndicator";
 import GlassPanel from "./components/visual/GlassPanel/GlassPanel";
+import MechPlate from "./components/visual/MechPlate/MechPlate";
 
 function App() {
 	return (
 		<div className="App">
-			<GlassPanel width={300} height={200} />
+			<div id="test"></div>
+			<MechPlate version="c" width={300} height={300} cutOff={180}/>
+			{/* <GlassPanel width={300} height={200} />
 
 			<StatusIndicator status={false} size="16px">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -8 476 476">
@@ -16,7 +19,7 @@ function App() {
 					>
 					</path>
 				</svg>
-			</StatusIndicator>
+			</StatusIndicator> */}
 		</div>
 	);
 };
