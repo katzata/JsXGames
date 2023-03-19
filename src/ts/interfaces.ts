@@ -1,3 +1,7 @@
+export interface PropsSize {
+    size: number;
+};
+
 export interface PropsWidthHeight {
     width: number;
     height: number;
