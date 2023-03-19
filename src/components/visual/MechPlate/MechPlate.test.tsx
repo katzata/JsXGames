@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { Corners } from "./types";
+import { Corners, Props } from "./types";
 
 import MechPlate from "./MechPlate";
 
@@ -14,7 +14,15 @@ describe("MechPlate", () => {
     const newHeight = (n: number) => height * n;
     const newCutOff = (n: number) => cutOff * n;
 
-    const initComponent = (version: string, width: number, height: number, cutOff: number) => <MechPlate version={version} width={width} height={height} cutOff={cutOff} />;
+    const initComponent = (version: string, width: number, height: number, cutOff: number, withGlow?: boolean) => <MechPlate version={version} width={width} height={height} withGlow={withGlow} cutOff={cutOff} />;
+    const path = (corners: Corners, i: number) => [
+        `M12 ${corners.pathStart + 10}`,
+        `L12 ${corners.lt1 + newCutOff(i)}, ${corners.lt2 + newCutOff(i)} 12,`,
+        `${corners.rt1 - newCutOff(i)} 12, ${newWidth(i) * 2 - 2} ${corners.rt2 + newCutOff(i)},`,
+        `${newWidth(i) * 2 - 2} ${corners.rb1 - newCutOff(i)}, ${corners.rb2 - newCutOff(i)} ${newHeight(i) * 2 - 2},`,
+        `${corners.lb1 + newCutOff(i)} ${newHeight(i) * 2 - 2}, 12 ${newHeight(i) * 2 - (corners.lb2 + newCutOff(i)) + 10}`,
+        `12 ${corners.pathStart + 10} z`
+    ].join(" ");
 
     it(`Component receives appropriate props (${testIterations} iterations)`, () => {
         for (let i = 1; i <= testIterations; i++) {
@@ -27,52 +35,126 @@ describe("MechPlate", () => {
         };
     });
 
-    it(`Versions 'a, b, c' have the appropriate size attributes (${testIterations} iterations)`, () => {
-        const testVersions = ["a", "b", "c"];
+    describe(`Version a has the appropriate size attributes (${testIterations} iterations)`, () => {
+        const corners = (i: number): Corners => ({
+            pathStart: newHeight(i),
+            lt1: 10,
+            lt2: 10,
+            rt1: newWidth(i) * 2,
+            rt2: 10,
 
-        for (let i = 1; i <= testIterations; i++) {
-            const component = initComponent(testVersions[i - 1], newWidth(i), newHeight(i), newCutOff(i));
-            const { unmount } = render(component);
-            const pathElement = Array.from(screen.getByRole("mechPlate").children)[1];
-            const corners: Corners = {
-                pathStart: newHeight(i),
-                lt1: 0,
-                lt2: 0,
-                rt1: newWidth(i) * 2,
-                rt2: 0,
+            rb1: newHeight(i) * 2,
+            rb2: newWidth(i) * 2,
+            lb1: 10,
+            lb2: 10,
+        });
 
-                rb1: newHeight(i) * 2,
-                rb2: newWidth(i) * 2,
-                lb1: 0,
-                lb2: 0,
+        it("Without glow", () => {
+            for (let i = 1; i <= testIterations; i++) {
+                const component = initComponent("a", newWidth(i), newHeight(i), newCutOff(i));
+                const { unmount } = render(component);
+                const plateElement = screen.getByRole("mechPlate");
+                const pathElement = Array.from(screen.getByRole("mechPlate").children)[1];
+
+                expect(plateElement).toHaveAttribute("viewBox", `10 10 ${(newWidth(i) * 2) - 10} ${(newHeight(i) * 2) - 10}`);
+                expect(pathElement).toHaveAttribute("d", path(corners(i), i));
+                unmount();
             };
+        });
 
-            if (testVersions[i - 1] === "b") {
-                corners.pathStart = corners.pathStart + (newCutOff(i) / 2);
-                corners.lt1 = newCutOff(i);
-                corners.lt2 = newCutOff(i);
-                corners.rb1 = corners.rb1 - newCutOff(i);
-                corners.rb2 = corners.rb2 - newCutOff(i);
+        it("With glow", () => {
+            for (let i = 1; i <= testIterations; i++) {
+                const component = initComponent("a", newWidth(i), newHeight(i), newCutOff(i));
+                const { unmount } = render(component);
+                const plateElement = screen.getByRole("mechPlate");
+                const pathElement = Array.from(screen.getByRole("mechPlate").children)[1];
+
+                expect(plateElement).toHaveAttribute("viewBox", `10 10 ${(newWidth(i) * 2) - 10} ${(newHeight(i) * 2) - 10}`);
+                expect(pathElement).toHaveAttribute("d", path(corners(i), i));
+                unmount();
             };
+        });
+    });
 
-            if (testVersions[i - 1] === "c") {
-                corners.pathStart = corners.pathStart - (newCutOff(i) / 2);
-                corners.rt1 = corners.rt1 - newCutOff(i);
-                corners.rt2 = newCutOff(i);
-                corners.lb1 = newCutOff(i);
-                corners.lb2 = corners.rb2 - newCutOff(i);
+    describe(`Version b has the appropriate size attributes (${testIterations} iterations)`, () => {
+        const corners = (i: number): Corners => ({
+            pathStart: newHeight(i) + (newCutOff(i) / 2),
+            lt1: newCutOff(i),
+            lt2: newCutOff(i),
+            rt1: newWidth(i) * 2,
+            rt2: 10,
+
+            rb1: (newHeight(i) * 2) - newCutOff(i),
+            rb2: (newWidth(i) * 2) - newCutOff(i),
+            lb1: 10,
+            lb2: 10,
+        });
+
+        it("Without glow", () => {
+            for (let i = 1; i <= testIterations; i++) {
+                const component = initComponent("b", newWidth(i), newHeight(i), newCutOff(i));
+                const { unmount } = render(component);
+                const plateElement = screen.getByRole("mechPlate");
+                const pathElement = Array.from(plateElement.children)[1];
+
+                expect(plateElement).toHaveAttribute("viewBox", `10 10 ${(newWidth(i) * 2) - 10} ${(newHeight(i) * 2) - 10}`);
+                expect(pathElement).toHaveAttribute("d", path(corners(i), i));
+                unmount();
             };
+        });
 
-            expect(pathElement).toHaveAttribute("d", `
-                M2 ${corners.pathStart}
-                L2 ${corners.lt1 + newCutOff(i)}, ${corners.lt2 + newCutOff(i)} 2,
-                ${corners.rt1 - newCutOff(i)} 2, ${newWidth(i) * 2 - 2} ${corners.rt2 + newCutOff(i)},
-                ${newWidth(i) * 2 - 2} ${corners.rb1 - newCutOff(i)}, ${corners.rb2 - newCutOff(i)} ${newHeight(i) * 2 - 2},
-                ${corners.lb1 + newCutOff(i)} ${newHeight(i) * 2 - 2}, 2 ${newHeight(i) * 2 - (corners.lb1 + newCutOff(i))}
-                2 ${corners.pathStart}
-            `);
+        it("With glow", () => {
+            for (let i = 1; i <= testIterations; i++) {
+                const component = initComponent("b", newWidth(i), newHeight(i), newCutOff(i), true);
+                const { unmount } = render(component);
+                const plateElement = screen.getByRole("mechPlate");
+                const pathElement = Array.from(plateElement.children)[1];
 
-            unmount();
-        };
+                expect(plateElement).toHaveAttribute("viewBox", `0 0 ${(newWidth(i) * 2) + 10} ${(newHeight(i) * 2) + 10}`);
+                expect(pathElement).toHaveAttribute("d", path(corners(i), i));
+                unmount();
+            };
+        });
+    });
+
+    describe(`Version c has the appropriate size attributes (${testIterations} iterations)`, () => {
+        const corners = (i: number): Corners => ({
+            pathStart: newHeight(i) - (newCutOff(i) / 2),
+            lt1: 10,
+            lt2: 10,
+            rt1: (newWidth(i) * 2) - newCutOff(i),
+            rt2: newCutOff(i),
+
+            rb1: newHeight(i) * 2,
+            rb2: newWidth(i) * 2,
+            lb1: newCutOff(i),
+            lb2: 10 - newCutOff(i),
+        });
+
+        it("Without glow", () => {
+            for (let i = 1; i <= testIterations; i++) {
+                const component = initComponent("c", newWidth(i), newHeight(i), newCutOff(i));
+                const { unmount } = render(component);
+                const plateElement = screen.getByRole("mechPlate");
+                const pathElement = Array.from(plateElement.children)[1];
+
+                expect(plateElement).toHaveAttribute("viewBox", `10 10 ${(newWidth(i) * 2) - 10} ${(newHeight(i) * 2) - 10}`);
+                expect(pathElement).toHaveAttribute("d", path(corners(i), i));
+                unmount();
+            };
+        });
+
+        it("With glow", () => {
+            for (let i = 1; i <= testIterations; i++) {
+                const component = initComponent("c", newWidth(i), newHeight(i), newCutOff(i), true);
+                const { unmount } = render(component);
+                const plateElement = screen.getByRole("mechPlate");
+                const pathElement = Array.from(plateElement.children)[1];
+
+                expect(plateElement).toHaveAttribute("viewBox", `0 0 ${(newWidth(i) * 2) + 10} ${(newHeight(i) * 2) + 10}`);
+                expect(pathElement).toHaveAttribute("d", path(corners(i), i));
+                unmount();
+            };
+        });
     });
 });

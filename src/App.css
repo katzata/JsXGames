@@ -15,19 +15,18 @@ body {
 }
 
 .App {
-    padding: 10px;
     position: relative;
     display: flex;
-    background-color: purple;
+    background-color: black;
 }
+
+
+
+
 
 * {
-    margin: auto;
+    margin: auto !important;
 }
-
-
-
-
 
 #test {
     border: 2px solid green;

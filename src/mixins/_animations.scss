@@ -1,0 +1,6 @@
+@mixin animation-mixin {
+    @keyframes pulse {
+        50%{opacity: .8;}
+        100%{opacity: 1;}
+    }
+}

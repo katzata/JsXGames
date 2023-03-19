@@ -1,0 +1,38 @@
+@use "../../../mixins/colors";
+
+.mechPlate {
+    .glow {
+        stroke: colors.$mech-glow;
+        animation: pulse colors.$pulse-speed linear infinite;
+    }
+
+    .borderStop1 {
+        stop-color: colors.$mech-border-stop-1;
+    }
+
+    .borderStop2 {
+        stop-color: colors.$mech-border-stop-2;
+    }
+
+    .fillStop1 {
+        stop-color: colors.$mech-fill-stop-1;
+    }
+
+    .fillStop2 {
+        stop-color: colors.$mech-fill-stop-2;
+    }
+
+    // >circle {
+    //     fill: colors.$mech-glow;
+    //     animation: move 10s linear infinite, pulse $dot-animation-speed linear infinite;
+    // }
+}
+
+// @keyframes move {
+//     100% {offset-distance: 100%;}
+// }
+
+@keyframes pulse {
+    50%{opacity: .8;}
+    100%{opacity: 1;}
+}

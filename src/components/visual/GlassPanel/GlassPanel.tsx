@@ -1,11 +1,7 @@
 import styles from "./GlassPanel.module.scss";
+import { Props } from "./types";
 
-interface Props extends React.PropsWithChildren {
-    width: number|string;
-    height: number|string;
-};
-
-const GlassPanel = ({ width = 100, height = 100 }: Props) => {
+const GlassPanel = ({ width = 100, height = 100 }: Props): JSX.Element => {
     const upScaledWidth: number = Number(width) * 2;
     const upScaledHeight: number = Number(height) * 2;
 
