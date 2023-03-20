@@ -5,14 +5,15 @@ import GlassPanel from "./components/visual/GlassPanel/GlassPanel";
 import MechPlate from "./components/visual/MechPlate/MechPlate";
 import MechCorner from "./components/visual/MechCorner/MechCorner";
 import Bolt from "./components/visual/Bolt/Bolt";
+import Spinner from "./components/visual/Spinner/Spinner";
 
 function App(): JSX.Element {
 	return (
 		<div className="App">
 			{/* <div id="test"></div> */}
 
-			<Bolt />
-
+			<Spinner />
+			{/* <Bolt /> */}
 			{/* {<MechCorner size={100}>
 				<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 93.934 93.934"><g><g>
 					<path d="M80.178,13.757c-18.341-18.342-48.08-18.342-66.421,0c-18.342,18.341-18.342,48.08,0,66.421   c18.341,18.342,48.08,18.342,66.421,0C98.52,61.836,98.52,32.098,80.178,13.757z M71.576,61.737l-9.838,9.838l-14.771-14.77   l-14.771,14.77l-9.838-9.838l14.77-14.771l-14.77-14.771l9.838-9.838l14.771,14.771l14.771-14.771l9.838,9.838l-14.77,14.772   L71.576,61.737z" fill="#FFFFFF"/>

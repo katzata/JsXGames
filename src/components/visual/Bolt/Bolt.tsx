@@ -1,7 +1,7 @@
 import styles from "./Bolt.module.scss"
 
 const Bolt = () => {
-    return <svg className={styles.bolt} width="90px" height="90px" viewBox={`0 0 180 180`}>
+    return <svg className={styles.bolt} width="90px" height="90px" viewBox={`0 0 180 180`} role="bolt">
         <defs>
             <linearGradient id="boltBorder" gradientTransform="rotate(90)">
                 <stop offset="0%" className={styles.boltBorderStop1} />

@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { Corners, Props } from "./types";
+import { Corners } from "./types";
 
 import MechPlate from "./MechPlate";
 
