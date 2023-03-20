@@ -1,7 +1,7 @@
 import styles from "./MechCorner.module.scss";
 import { Props } from "./types";
 
-const MechCorner = ({ size, children }: Props): JSX.Element => {
+const MechCorner = ({ orientation, size, children }: Props): JSX.Element => {
     const scaled = (num: number) => num * 2;
 
     const path = [
@@ -21,12 +21,31 @@ const MechCorner = ({ size, children }: Props): JSX.Element => {
         `12 52 z`
     ].join(" ");
 
+    const rotation = (orientation: string): number => {
+        let res = 0;
+
+        if (orientation === "br") {
+            res = 90;
+        };
+
+        if (orientation === "bl") {
+            res = 180;
+        };
+
+        if (orientation === "tl") {
+            res = 270;
+        };
+
+        return res;
+    };
+
     return <svg
         className={styles.mechCorner}
         width={`${size}px`}
         height={`${size}px`}
         viewBox={`0 0 ${scaled(size)} ${scaled(size)}`}
         role="mechCorner"
+        style={{ transform: `rotate(${rotation(orientation)}deg)`}}
     >
         <defs>
             <linearGradient id="border" gradientTransform="rotate(90)">
@@ -64,7 +83,21 @@ const MechCorner = ({ size, children }: Props): JSX.Element => {
             strokeWidth="4"
             fill="url(#fill)"
         />
-        <foreignObject className={styles.foreignObject} x="51%" y="16.5%" width={size * 0.65} height={size * 0.65}>
+        {/* <rect
+            x="102"
+            y="33"
+            width="65"
+            height="65"
+            /> */}
+
+        <foreignObject
+            className={styles.foreignObject}
+            x="51%"
+            y="16.5%"
+            width={size * 0.65}
+            height={size * 0.65}
+            style={{ transform: `rotate(${-rotation(orientation)}deg)`, transformOrigin: "134.5px 65.5px"}}
+        >
             {children}
         </foreignObject>
         {/* will be removed when the bolt element is added */}

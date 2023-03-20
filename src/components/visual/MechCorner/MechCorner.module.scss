@@ -2,8 +2,6 @@
 @use "../../../mixins/animations";
 
 .mechCorner {
-    outline: 1px solid green;
-
     .glow {
         stroke: colors.$mech-glow;
         animation: pulse colors.$pulse-speed linear infinite;

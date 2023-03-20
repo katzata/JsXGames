@@ -1,3 +1,5 @@
-export interface Props extends React.PropsWithChildren {
-    size: number
+import { PropsChildrenSize } from "../../../ts/interfaces";
+
+export interface Props extends PropsChildrenSize {
+    orientation: string;
 };
