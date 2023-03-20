@@ -1,7 +1,7 @@
 import styles from "./Spinner.module.scss";
 import { Props } from "./types";
 
-function Spinner({ strokeWidth }: Props) {
+const Spinner = ({ strokeWidth }: Props): JSX.Element => {
     const sizes: Array<number> = [100, 70, 40];
 
     return (
