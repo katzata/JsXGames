@@ -1,47 +1,47 @@
-name: Deploy from ver2.0
-run-name: ${{ github.actor }} is staging from ${{ github.branch }} 🚀
+# name: Deploy from ver2.0
+# run-name: ${{ github.actor }} is staging from ${{ github.branch }} 🚀
 
 # disabling for the moment as there is nothing significant to stage.
 
-#on:
+# on:
 #  push:
 #    branches: [ ver2.0 ]
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [16.x]
+#     strategy:
+#       matrix:
+#         node-version: [16.x]
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+#     steps:
+#     - name: Checkout repository
+#       uses: actions/checkout@v3
 
-    - name: Set up Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
+#     - name: Set up Node.js ${{ matrix.node-version }}
+#       uses: actions/setup-node@v1
+#       with:
+#         node-version: ${{ matrix.node-version }}
 
-    - name: Install dependencies
-      run: npm ci
+#     - name: Install dependencies
+#       run: npm ci
 
-    - name: Run the tests
-      run: npm test
+#     - name: Run the tests
+#       run: npm test
 
-    - name: Build
-      run: npm run build
+#     - name: Build
+#       run: npm run build
 
-    - name: List output files
-      run: find dist/ -print
+#     - name: List output files
+#       run: find dist/ -print
 
-    - name: 📂 Deploy
-      uses: SamKirkland/FTP-Deploy-Action@4.3.3
-      with:
-        server: ${{ secrets.STAGING_SERVER }}
-        port: ${{ secrets.STAGING_PORT }}
-        username: ${{ secrets.STAGING_USERNAME }}
-        password: ${{ secrets.STAGING_PASSWORD }}
-        protocol: ftps
-        local-dir: dist/
+#     - name: 📂 Deploy
+#       uses: SamKirkland/FTP-Deploy-Action@4.3.3
+#       with:
+#         server: ${{ secrets.STAGING_SERVER }}
+#         port: ${{ secrets.STAGING_PORT }}
+#         username: ${{ secrets.STAGING_USERNAME }}
+#         password: ${{ secrets.STAGING_PASSWORD }}
+#         protocol: ftps
+#         local-dir: dist/
