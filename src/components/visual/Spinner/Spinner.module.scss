@@ -1,31 +1,40 @@
 @use "../../../mixins/colors";
 
 .spinner {
+    position: relative;
     color: colors.$mech-glow;
-    
+
     svg {
-        animation: spin linear infinite;
-    }
+        position: absolute;
+        left: 50%;
+        top: 50%;
 
-    foreignObject:nth-child(2) svg {
-        animation-duration: .6s;
-    }
+        &:nth-child(1),
+        &:nth-child(3) {
+            animation: spinA linear infinite;
+        }
 
-    foreignObject:nth-child(3) svg {
-        animation-duration: .8s;
-    }
+        &:nth-child(1) {
+            animation-duration: .6s;
+        }
 
-    foreignObject:nth-child(4) svg {
-        animation-duration: .4s;
+        &:nth-child(2) {
+            animation: spinB linear infinite;
+            animation-duration: .8s;
+        }
+
+        &:nth-child(3) {
+            animation-duration: .4s;
+        }
     }
 }
 
-@keyframes spin {
-    0% {transform: rotate(0deg);}
-    100% {transform: rotate(360deg);}
+@keyframes spinA {
+    0% {transform: translate(-50%, -50%) rotateZ(0deg);}
+    100% {transform: translate(-50%, -50%) rotateZ(360deg);}
 }
 
 @keyframes spinB {
-    0% {transform: rotate(0deg);}
-    100% {transform: rotate(360deg);}
+    0% {transform: translate(-50%, -50%) rotateZ(360deg) scale(-1,1);}
+    100% {transform: translate(-50%, -50%) rotateZ(0deg) scale(-1,1);}
 }

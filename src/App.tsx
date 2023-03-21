@@ -13,9 +13,9 @@ function App(): JSX.Element {
 		<div className="App">
 			{/* <div id="test"></div> */}
 
-			<Icon current="user"/>
+			{/* <Icon current="user"/> */}
 
-			{/* <Spinner /> */}
+			<Spinner strokeWidth={9} />
 			{/* <Bolt /> */}
 			{/* {<MechCorner orientation="tl" size={100}>
 			<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 438.533 438.533">
