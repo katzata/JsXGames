@@ -1,6 +1,6 @@
 import styles from "./Bolt.module.scss"
 
-const Bolt = () => {
+const Bolt = (): JSX.Element => {
     return <svg className={styles.bolt} width="90px" height="90px" viewBox={`0 0 180 180`} role="bolt">
         <defs>
             <linearGradient id="boltBorder" gradientTransform="rotate(90)">

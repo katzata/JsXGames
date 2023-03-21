@@ -20,6 +20,7 @@ const Spinner = ({ strokeWidth = 9 }: Props): JSX.Element => {
                 style={objectStyles}
                 viewBox="-10 -10 220 220"
                 fill="none"
+                key={`spinner_${idx}`}
             >
                 <defs>
                     <linearGradient id="spinner-secondHalf">

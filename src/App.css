@@ -16,6 +16,7 @@ body {
 
 .App {
     position: relative;
+    padding: 30%;
     display: flex;
     background-color: black;
 }
@@ -26,8 +27,7 @@ body {
 
 .App > * {
     margin: auto !important;
-    width: 15vh;
-    height: 15vh;
+    color: white;
 }
 
 #test {
