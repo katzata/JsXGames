@@ -1,0 +1,33 @@
+@use "../../../mixins/colors";
+
+.bolt {
+    filter: brightness(90%);
+
+    .glow {
+        stroke: colors.$mech-glow;
+        animation: pulse colors.$pulse-speed linear infinite;
+    }
+
+    .boltBorderStop1 {
+        stop-color: colors.$mech-border-stop-1;
+    }
+
+    .boltBorderStop2 {
+        stop-color: colors.$mech-border-stop-2;
+    }
+
+    .boltFillStop2,
+    .hexBorderStop1,
+    .hexFillStop2 {
+        stop-color: colors.$mech-fill-stop-2;
+    }
+
+    .boltFillStop1,
+    .hexBorderStop2 {
+        stop-color: colors.$mech-fill-stop-1;
+    }
+
+    .hexFillStop1 {
+        stop-color: rgb(84, 97, 103);
+    }
+}

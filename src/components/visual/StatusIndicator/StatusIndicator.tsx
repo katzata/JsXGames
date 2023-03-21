@@ -1,25 +1,7 @@
-import React from "react";
 import styles from "./StatusIndicator.module.scss";
+import { Props, StatusStyles, ScanLinesStyles } from "./types";
 
-interface Props extends React.PropsWithChildren {
-    status: boolean;
-    size: string;
-};
-
-interface StatusStyles {
-    width: string,
-    height: string,
-    border: string,
-    fill: string
-    stroke: string
-}
-
-interface ScanLinesStyles {
-    boxShadow: string,
-    backgroundImage: string,
-}
-
-const StatusIndicator: React.FunctionComponent<Props> = ({ status, size, children }) => {
+const StatusIndicator = ({ status, size, children }: Props): JSX.Element => {
     const statusColor: string = status ? "rgba(240, 190, 36, .65)" : "rgba(155, 155, 155, .65)";
     const statusStyles: StatusStyles = {
         width: size,

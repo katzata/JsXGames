@@ -1,6 +1,6 @@
 import styles from "./ResultRow.module.scss";
 
-const ResultRow = (props: { icons: string[] }) => {
+const ResultRow = (props: { icons: string[] }): JSX.Element => {
     const iconSpace = 50;
 
     return <div className={styles.resultRow}>

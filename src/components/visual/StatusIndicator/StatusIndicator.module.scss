@@ -1,3 +1,5 @@
+@use "../../../mixins/colors";
+
 $scanLineWidth: 1px;
 
 .statusIndicator {
@@ -5,7 +7,7 @@ $scanLineWidth: 1px;
     display: flex;
     background-color: black;
     border-radius: 50%;
-    box-shadow: 0 0 1px 1px rgba(0, 0, 0, .6);
+    box-shadow: colors.$mech-indentation;
     overflow: hidden;
 
     .scanLines {

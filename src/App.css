@@ -16,5 +16,26 @@ body {
 
 .App {
     position: relative;
+    padding: 30%;
     display: flex;
+    background-color: black;
+}
+
+
+
+
+
+.App > * {
+    margin: auto !important;
+    color: white;
+}
+
+#test {
+    border: 2px solid green;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 300px;
+    height: 300px;
+    transform: rotate(45deg);
 }
