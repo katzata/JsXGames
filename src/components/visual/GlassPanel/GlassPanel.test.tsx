@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import { Props } from "./types";
 
 import GlassPanel from "./GlassPanel";
 
@@ -7,7 +8,7 @@ describe("GlassPanel", () => {
     const mockHeight: number = 100;
     const testIterations: number = 3;
 
-    const initComponent = (status: number | string, size: number | string) => (<GlassPanel width={status} height={size} />);
+    const initComponent = (width:number, height:number) => (<GlassPanel width={width} height={height} />);
 
     it("Component renders appropriately", () => {
         for (let i = 1; i <= testIterations; i++) {
