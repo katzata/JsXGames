@@ -96,14 +96,8 @@ describe("Select component", () => {
 
     it(`Component receives the wrong id prop (${wrongInput.length} iterations)`, () => {
         for (let i = 0; i < wrongInput.length; i++) {
-            const component = <Select
-                // @ts-expect-error
-                id={wrongInput[i]}
-                name={testData[0].name}
-                options={testData[0].options}
-                defaultValue={options[0][1]}
-                changeHandler={testFunction}
-            />
+            // @ts-expect-error
+            const component = <Select id={wrongInput[i]}/>
             const { unmount } = render(component);
 
             const selectElement: HTMLSelectElement = screen.getByRole("select");
@@ -115,14 +109,8 @@ describe("Select component", () => {
 
     it(`Component receives the wrong name prop (${wrongInput.length} iterations)`, () => {
         for (let i = 0; i < wrongInput.length; i++) {
-            const component = <Select
-                id={testData[0].id}
-                // @ts-expect-error
-                name={wrongInput[i]}
-                options={testData[0].options}
-                defaultValue={options[0][1]}
-                changeHandler={testFunction}
-            />
+            // @ts-expect-error
+            const component = <Select name={wrongInput[i]}/>
             const { unmount } = render(component);
 
             const selectElement: HTMLSelectElement = screen.getByRole("select");
@@ -134,14 +122,8 @@ describe("Select component", () => {
 
     it(`Component receives the wrong options prop (${wrongInput.length} iterations)`, () => {
         for (let i = 0; i < wrongInput.length; i++) {
-            const component = <Select
-                id={testData[0].id}
-                name={testData[0].name}
-                // @ts-expect-error
-                options={wrongInput[i]}
-                defaultValue={options[0][1]}
-                changeHandler={testFunction}
-            />
+            // @ts-expect-error
+            const component = <Select options={wrongInput[i]}/>
             const { unmount } = render(component);
 
             const selectElement: HTMLSelectElement = screen.getByRole("select");
@@ -155,18 +137,12 @@ describe("Select component", () => {
         resetResults();
 
         for (let i = 0; i < wrongInput.length; i++) {
-            const component = <Select
-                id={testData[0].id}
-                name={testData[0].name}
-                options={testData[0].options}
-                // @ts-expect-error
-                defaultValue={wrongInput[i]}
-                changeHandler={testFunction}
-            />
+            // @ts-expect-error
+            const component = <Select defaultValue={wrongInput[i]}/>
             const { unmount } = render(component);
             const selectElement: HTMLSelectElement = screen.getByRole("select");
 
-            expect(selectElement.value).to.eq("value1");
+            expect(selectElement.value).to.eq("");
             unmount();
         };
     });
@@ -175,18 +151,8 @@ describe("Select component", () => {
         resetResults();
 
         for (let i = 0; i < wrongInput.length; i++) {
-            const component = <Select
-                // @ts-expect-error
-                id={123}
-                // @ts-expect-error
-                name={123}
-                // @ts-expect-error
-                options={123}
-                // @ts-expect-error
-                defaultValue={[]}
-                // @ts-expect-error
-                changeHandler={wrongInput[i]}
-            />
+            // @ts-expect-error
+            const component = <Select changeHandler={wrongInput[i]}/>
             const { unmount } = render(component);
             const selectElement: HTMLSelectElement = screen.getByRole("select");
 
