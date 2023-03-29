@@ -6,7 +6,7 @@
   "author": "Kamen Kashchiev",
   "homepage": "https://test-domain@kashchiev.com",
   "scripts": {
-    "dev": "vite --host --port 3000",
+    "start": "vite --host --port 3000",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "vitest",

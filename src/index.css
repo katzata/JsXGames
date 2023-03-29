@@ -6,4 +6,6 @@
 	outline: none;
 	text-decoration: none;
 	background-color: transparent;
+	list-style-type: none;
+	/* scrollbar-width: none; */
 }
