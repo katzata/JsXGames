@@ -2,8 +2,8 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import List from "./List";
 
 describe("List component", () => {
-    const testIterations: number = 2;
-    let testResult: number/* HTMLInputElement | undefined */;
+    const testIterations: number = 3;
+    let testResult: number;
     const children = (num: number): JSX.Element[] => [...Array(3 * num).fill(1).map((_, idx: number) => <p key={idx}>p{idx}</p>)];
     const testCallback = (offset: number): void => {
         testResult = offset;
@@ -11,11 +11,6 @@ describe("List component", () => {
 
     window.HTMLElement.prototype.scrollTo = () => {};
     const wrongInput = ["", 1, undefined, [], {}, null, Infinity, NaN, () => {}];
-
-    // const resetResults = (): void => { testResult = undefined };
-    // const resetOptions = (): void => {
-    //     // testData.options = ["option1", "option2", "option3"];
-    // };
 
     it(`Component receives the appropriate props (${testIterations} iterations)`, () => {
         for (let i = 1; i <= testIterations; i++) {

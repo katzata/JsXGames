@@ -6,6 +6,7 @@ import Button from "./components/core/Button/Button";
 import Select from "./components/core/Select/Select";
 import RadioButtons from "./components/core/RadioButtons/RadioButtons";
 import List from "./components/core/List/List";
+import Article from "./components/core/Article/Article";
 
 
 function App(): JSX.Element {
@@ -19,7 +20,73 @@ function App(): JSX.Element {
 
 	return (
 		<div className="App">
-			<List scrollOffset={offset} getScrollOffset={handleOffset}></List>
+			<Article title={"test title"} text={"test text"} scrollOffset={offset} getScrollOffset={handleOffset}>
+				<>
+					<p>p1</p>
+					<p>p2</p>
+					<p>p3</p>
+					<p>p1</p>
+					<p>p2</p>
+					<p>p3</p>
+					<p>p1</p>
+					<p>p2</p>
+					<p>p3</p>
+					<p>p1</p>
+					<p>p2</p>
+					<p>p3</p>
+					<p>p1</p>
+					<p>p2</p>
+					<p>p3</p>
+					<p>p1</p>
+					<p>p2</p>
+					<p>p3</p>
+					<p>p1</p>
+					<p>p2</p>
+					<p>p3</p>
+					<p>p1</p>
+					<p>p2</p>
+					<p>p3</p>
+					<p>p1</p>
+					<p>p2</p>
+					<p>p3</p>
+					<p>p1</p>
+					<p>p2</p>
+					<p>p3</p>
+					<p>p1</p>
+					<p>p2</p>
+					<p>p3</p>
+					<p>p1</p>
+					<p>p2</p>
+					<p>p3</p>
+					<p>p1</p>
+					<p>p2</p>
+					<p>p3</p>
+					<p>p1</p>
+					<p>p2</p>
+					<p>p3</p>
+					<p>p1</p>
+					<p>p2</p>
+					<p>p3</p>
+					<p>p1</p>
+					<p>p2</p>
+					<p>p3</p>
+					<p>p1</p>
+					<p>p2</p>
+					<p>p3</p>
+					<p>p1</p>
+					<p>p2</p>
+					<p>p3</p>
+					<p>p1</p>
+					<p>p2</p>
+					<p>p3</p>
+					<p>p1</p>
+					<p>p2</p>
+					<p>p3</p>
+					<p>p1</p>
+					<p>p2</p>
+					<p>p3</p>
+				</>
+			</Article>
 		</div>
 	);
 };
