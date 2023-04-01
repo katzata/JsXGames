@@ -10,8 +10,8 @@ const CharInput = ({
     onChangeHandler,
     onFocusHandler,
     onBlurHandler,
-    readOnly = false,
-    disabled = false
+    readOnly,
+    disabled
 }: Props): JSX.Element => {
     return <input
         id={`${id}`}
@@ -20,9 +20,9 @@ const CharInput = ({
         defaultValue={`${defaultValue}`}
         min={`${min}`}
         max={`${max}`}
-        onChange={typeof onChangeHandler === "function" ? onChangeHandler : null}
-        onFocus={typeof onFocusHandler === "function" ? onFocusHandler : null}
-        onBlur={typeof onBlurHandler === "function" ? onBlurHandler : null}
+        onChange={onChangeHandler}
+        onFocus={onFocusHandler}
+        onBlur={onBlurHandler}
         readOnly={readOnly}
         disabled={disabled}
         role="charInput"
