@@ -35,7 +35,7 @@ describe("Button component", () => {
         };
     });
 
-    it(`Component renders appropriately (${testIterations} iterations)`, () => {
+    it(`Component invokes the callback function appropriately (${testIterations} iterations)`, () => {
         render(<Button eventHandler={testFunction}/>);
         fireEvent.click(document.querySelector("button") as HTMLButtonElement);
         expect(testResult).to.eq("yay");

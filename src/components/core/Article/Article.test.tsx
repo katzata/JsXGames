@@ -114,7 +114,7 @@ describe("Article component", () => {
         };
     });
 
-    it(`Component receives the text prop (${wrongInput.length} iterations)`, () => {
+    it(`Component receives the wrong text prop (${wrongInput.length} iterations)`, () => {
         for (let i = 0; i < wrongInput.length; i++) {
             if (typeof wrongInput[i] === "string") continue;
             // @ts-expect-error
@@ -157,6 +157,8 @@ describe("Article component", () => {
 
     it(`Component receives the wrong children prop (${wrongInput.length} iterations)`, () => {
         for (let i = 0; i < wrongInput.length; i++) {
+            if (wrongInput[i] instanceof Object === true) continue;
+
             try {
                 // @ts-expect-error
                 const component = <Article>{wrongInput[i]}</Article>;

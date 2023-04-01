@@ -7,86 +7,23 @@ import Select from "./components/core/Select/Select";
 import RadioButtons from "./components/core/RadioButtons/RadioButtons";
 import List from "./components/core/List/List";
 import Article from "./components/core/Article/Article";
+import Form from "./components/core/Form/Form";
 
 
 function App(): JSX.Element {
-	const [offset, setOffset] = useState(30);
-	const handleOffset = (newOffset: number): void => {
-		if (newOffset) {
-			setOffset(Number(newOffset));
-			console.log(newOffset);
-		};
+	const testSubmit = (formData: FormData): void => {
+		console.log(formData.get("test"));
 	};
 
 	return (
 		<div className="App">
-			<Article title={"test title"} text={"test text"} scrollOffset={offset} getScrollOffset={handleOffset}>
+			<Form method="GET" submitHandler={testSubmit}>
 				<>
-					<p>p1</p>
-					<p>p2</p>
-					<p>p3</p>
-					<p>p1</p>
-					<p>p2</p>
-					<p>p3</p>
-					<p>p1</p>
-					<p>p2</p>
-					<p>p3</p>
-					<p>p1</p>
-					<p>p2</p>
-					<p>p3</p>
-					<p>p1</p>
-					<p>p2</p>
-					<p>p3</p>
-					<p>p1</p>
-					<p>p2</p>
-					<p>p3</p>
-					<p>p1</p>
-					<p>p2</p>
-					<p>p3</p>
-					<p>p1</p>
-					<p>p2</p>
-					<p>p3</p>
-					<p>p1</p>
-					<p>p2</p>
-					<p>p3</p>
-					<p>p1</p>
-					<p>p2</p>
-					<p>p3</p>
-					<p>p1</p>
-					<p>p2</p>
-					<p>p3</p>
-					<p>p1</p>
-					<p>p2</p>
-					<p>p3</p>
-					<p>p1</p>
-					<p>p2</p>
-					<p>p3</p>
-					<p>p1</p>
-					<p>p2</p>
-					<p>p3</p>
-					<p>p1</p>
-					<p>p2</p>
-					<p>p3</p>
-					<p>p1</p>
-					<p>p2</p>
-					<p>p3</p>
-					<p>p1</p>
-					<p>p2</p>
-					<p>p3</p>
-					<p>p1</p>
-					<p>p2</p>
-					<p>p3</p>
-					<p>p1</p>
-					<p>p2</p>
-					<p>p3</p>
-					<p>p1</p>
-					<p>p2</p>
-					<p>p3</p>
-					<p>p1</p>
-					<p>p2</p>
-					<p>p3</p>
+					<input name="test" type="text" value={"asd"}/>
+					<input type="text" />
+					<input type="text" />
 				</>
-			</Article>
+			</Form>
 		</div>
 	);
 };
