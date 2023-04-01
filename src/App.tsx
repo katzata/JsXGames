@@ -9,6 +9,7 @@ import List from "./components/core/List/List";
 import Article from "./components/core/Article/Article";
 import Form from "./components/core/Form/Form";
 import Link from "./components/core/Link/Link";
+import CheckBox from "./components/core/CheckBox/CheckBox";
 
 
 function App(): JSX.Element {
@@ -18,9 +19,7 @@ function App(): JSX.Element {
 
 	return (
 		<div className="App">
-			<Link>
-				<span></span>
-			</Link>
+			<CheckBox />
 		</div>
 	);
 };

@@ -1,0 +1,44 @@
+@use "../../../mixins/colors";
+
+$duration: .3s;
+
+.checkbox {
+    position: relative;
+    display: inline-flex;
+    transition-duration: $duration;
+    transition-timing-function: ease-in-out;
+
+    >input {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        opacity: 0;
+        z-index: 1;
+    }
+
+    > svg {
+        border-radius: 13px;
+        background-color: colors.$window-bg;
+    }
+
+    > svg > path,
+    > svg > rect {
+        stroke: transparent;
+        transition-duration: $duration;
+        transition-timing-function: ease-in-out;
+    }
+
+    > svg > rect {
+        fill: colors.$window-bg;
+    }
+
+    [data-checked="true"] {
+        stroke: colors.$mech-glow;
+    }
+
+    .feDropShadow {
+        flood-color: colors.$highlight-color;
+    }
+}
