@@ -8,6 +8,7 @@ import RadioButtons from "./components/core/RadioButtons/RadioButtons";
 import List from "./components/core/List/List";
 import Article from "./components/core/Article/Article";
 import Form from "./components/core/Form/Form";
+import Link from "./components/core/Link/Link";
 
 
 function App(): JSX.Element {
@@ -17,13 +18,9 @@ function App(): JSX.Element {
 
 	return (
 		<div className="App">
-			<Form method="GET" submitHandler={testSubmit}>
-				<>
-					<input name="test" type="text" value={"asd"}/>
-					<input type="text" />
-					<input type="text" />
-				</>
-			</Form>
+			<Link>
+				<span></span>
+			</Link>
 		</div>
 	);
 };
