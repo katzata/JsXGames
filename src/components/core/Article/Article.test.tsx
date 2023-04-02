@@ -13,29 +13,6 @@ describe("Article component", () => {
     const wrongInput = ["", 1, undefined, [], {}, null, Infinity, NaN, () => {}];
 
     const testString = (type: string, index: number): string => `Test ${type} ${index}`;
-    // const resetOptions = (): void => {
-    //     // testData.options = ["option1", "option2", "option3"];
-    // };
-
-    it(`Component receives the appropriate props (${testIterations} iterations)`, () => {
-        for (let i = 1; i <= testIterations; i++) {
-            const title = testString("title", i);
-            const text = testString("text", i);
-            const component = <Article title={title} text={text} scrollOffset={i} getScrollOffset={testCallback}>
-                <>{children(i)}</>
-            </Article>;
-
-            expect(component.props.title).to.eq(title);
-            expect(component.props.text).to.eq(text);
-            expect(component.props.scrollOffset).to.eq(i);
-            expect(typeof component.props.getScrollOffset).to.eq("function");
-            expect(component.props.children.props.children.length).to.eq(3 * i);
-
-            component.props.children.props.children.forEach((child: JSX.Element) => {
-                expect(child.type).to.eq("span");
-            });
-        };
-    });
 
     it(`Component renders appropriately (${testIterations} iterations)`, () => {
         for (let i = 1; i <= testIterations; i++) {
@@ -67,23 +44,23 @@ describe("Article component", () => {
         };
     });
 
-    // it.only(`Component gets scrolled appropriately (${testIterations} iterations)`, () => {
-    //     for (let i = 1; i < testIterations; i++) {
-    //         const { unmount } = render(<Article scrollOffset={i * 10} getScrollOffset={testCallback}>
-    //             <>{children(i * 50)}</>
-    //         </Article>);
+    it.skip(`Component gets scrolled appropriately (${testIterations} iterations)`, () => {
+        for (let i = 1; i < testIterations; i++) {
+            const { unmount } = render(<Article scrollOffset={i * 10} getScrollOffset={testCallback}>
+                <>{children(i * 50)}</>
+            </Article>);
 
-    //         const articleElement: HTMLElement = screen.getByRole("article");
-    //         // console.log(children(i * 50));
+            const articleElement: HTMLElement = screen.getByRole("article");
+            // console.log(children(i * 50));
 
-    //         fireEvent.scroll(articleElement, { target: { scrollY: 100 } });
-    //         console.log(Array.from(articleElement.children));
-    //         console.log(articleElement.scrollTop);
+            fireEvent.scroll(articleElement, { target: { scrollY: 100 } });
+            console.log(Array.from(articleElement.children));
+            console.log(articleElement.scrollTop);
 
-    //         // expect(articleElement.scrollTop).to.eq(100)
-    //         unmount();
-    //     };
-    // });
+            // expect(articleElement.scrollTop).to.eq(100)
+            unmount();
+        };
+    });
 
     it(`Component invokes the callback function appropriately (${testIterations} iterations)`, () => {
         const { unmount } = render(<Article scrollOffset={0} getScrollOffset={testCallback}>

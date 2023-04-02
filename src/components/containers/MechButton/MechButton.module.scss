@@ -1,0 +1,63 @@
+@use "../../../mixins/colors";
+
+.mechButton {
+    position: relative;
+    transform: scale(1, 1);
+    user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+
+    > a,
+    > button {
+        position: relative;
+        display: flex;
+        font-size: inherit;
+        line-height: inherit;
+        font-style: inherit;
+        font-weight: inherit;
+        letter-spacing: inherit;
+    }
+
+    svg,
+    path {
+        transition-duration: .1s;
+    }
+
+    .gradientTop {
+        stop-color: colors.$mech-border-stop-2;
+    }
+
+    .gradientBottom {
+        stop-color: colors.$mech-border-stop-1;
+    }
+
+    .buttonText {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding-bottom: 3px;
+        font-family: Jura;
+        color: colors.$mech-glow;
+        fill: colors.$mech-glow;
+        text-transform: uppercase;
+
+        .text {
+            stroke: colors.$mech-glow;
+        }
+    }
+
+    &:active {
+        transform: scale(.995, .995);
+
+        &>button svg path:nth-child(2) {
+            stroke-width: 8;
+            stroke: rgba(0, 0, 0, .8);
+        }
+
+        .buttonText {
+            color: rgba(232, 0, 0);
+        }
+    }
+};

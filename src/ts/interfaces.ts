@@ -3,12 +3,12 @@ export interface PropsSize {
 };
 
 export interface PropsEventHandlerChildren extends React.PropsWithChildren {
-    eventHandler: (e: React.MouseEvent | React.KeyboardEvent) => void;
+    eventHandler?: (e: React.MouseEvent) => void;
 };
 
 export interface PropsWidthHeight {
-    width: number;
-    height: number;
+    width?: number;
+    height?: number;
 };
 
 export interface PropsChildrenSize extends React.PropsWithChildren {

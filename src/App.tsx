@@ -11,28 +11,15 @@ import Form from "./components/core/Form/Form";
 import Link from "./components/core/Link/Link";
 import CheckBox from "./components/core/CheckBox/CheckBox";
 import CharInput from "./components/core/CharInput/CharInput";
+import GameWindow from "./components/core/GameWindow/GameWindow";
 
+import MechButton from "./components/containers/MechButton/MechButton";
 
 function App(): JSX.Element {
-	const testSubmit = (e: React.ChangeEvent<HTMLInputElement>): void => {
-		console.log(e);
-	};
-
 	return (
 		<div className="App">
-			<CharInput
-				id="test"
-				type="text"
-				name="test"
-				defaultValue="test"
-				min="0"
-				max="10"
-				onChangeHandler={testSubmit}
-				onFocusHandler={testSubmit}
-				onBlurHandler={testSubmit}
-				readOnly={false}
-				disabled={false}
-			/>
+			<div id="test"></div>
+			<MechButton type="link" width={90} height={36} cutOff={11} text="games" target="test target" eventHandler={(e: React.MouseEvent) => {}}/>
 		</div>
 	);
 };

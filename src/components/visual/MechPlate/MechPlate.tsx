@@ -1,11 +1,13 @@
 import styles from "./MechPlate.module.scss";
 import { Props, Corners } from "./types";
 
-const MechPlate = ({ version = "a", width = 200, height = 100, withGlow = false, cutOff = 20 }: Props): JSX.Element => {
+const MechPlate = ({ version = "a", width = 200, height = 100, withGlow = false, glowColor, cutOff = 20 }: Props): JSX.Element => {
     const upScale = (num: number) => num * 2;
     const offset: number = withGlow ? 10 : -10;
     const baseXY: number = withGlow ? 0 : 10;
     const viewBox = `${baseXY} ${baseXY} ${upScale(width) + offset} ${upScale(height) + offset}`;
+    const colorId = glowColor?.slice(glowColor?.indexOf("("), glowColor?.indexOf(")"))[1].split(", ").join("").replace(".", "");
+
     const corners: Corners = {
         pathStart: height + 10,
         lt1: 10,
@@ -21,8 +23,8 @@ const MechPlate = ({ version = "a", width = 200, height = 100, withGlow = false,
 
     if (version === "b") {
         corners.pathStart = corners.pathStart + ((cutOff) / 2);
-        corners.lt1 = (cutOff);
-        corners.lt2 = (cutOff);
+        corners.lt1 = (cutOff + cutOff / 2);
+        corners.lt2 = (cutOff + cutOff / 2);
         corners.rb1 = corners.rb1 - (cutOff);
         corners.rb2 = corners.rb2 - (cutOff);
     };
@@ -30,9 +32,9 @@ const MechPlate = ({ version = "a", width = 200, height = 100, withGlow = false,
     if (version === "c") {
         corners.pathStart = corners.pathStart - ((cutOff) / 2);
         corners.rt1 = corners.rt1 - (cutOff);
-        corners.rt2 = (cutOff);
-        corners.lb1 = (cutOff);
-        corners.lb2 = corners.lb2 - (cutOff);
+        corners.rt2 = (cutOff + cutOff / 2);
+        corners.lb1 = (cutOff + cutOff / 2);
+        corners.lb2 = corners.lb2 + (cutOff);
     };
 
     const path = [
@@ -56,7 +58,7 @@ const MechPlate = ({ version = "a", width = 200, height = 100, withGlow = false,
                 <stop offset="100%" className={styles.fillStop2} />
             </linearGradient>
 
-            {withGlow && <filter id="borderGlow">
+            {(withGlow || glowColor) && <filter id={`borderGlow${colorId}`}>
                 <feGaussianBlur in="SourceGraphic" stdDeviation="4" />
             </filter>}
 
@@ -69,10 +71,11 @@ const MechPlate = ({ version = "a", width = 200, height = 100, withGlow = false,
 
         {withGlow && <path
             d={path}
-            className={styles.glow}
-            strokeWidth="15"
+            className={glowColor ? "" : styles.glow}
+            stroke={glowColor}
+            strokeWidth="10"
             fill="none"
-            filter="url(#borderGlow)"
+            filter={`url(#borderGlow${colorId})`}
         />}
 
         <path

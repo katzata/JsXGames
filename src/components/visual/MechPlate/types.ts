@@ -3,6 +3,7 @@ import { PropsWidthHeight } from "../../../ts/interfaces";
 export interface Props extends PropsWidthHeight {
     version?: string;
     withGlow?: boolean;
+    glowColor?: string;
     cutOff?: number;
 };
 

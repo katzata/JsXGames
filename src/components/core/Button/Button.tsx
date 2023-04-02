@@ -8,7 +8,7 @@ const Button = ({eventHandler, children}: Props): JSX.Element => {
         eventHandler(e);
     };
 
-    return <button className={styles.button} onClick={(e: React.MouseEvent) => onClick(e)}>
+    return <button className={styles.button} onClick={onClick}>
         {children}
     </button>;
 };

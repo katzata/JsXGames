@@ -1,3 +1,13 @@
+@font-face {
+    font-family: "Jura";
+    src: url("./assets/fonts/Jura.woff") format("woff");
+}
+
+@font-face {
+    font-family: "PressStart2P";
+    src: url("./assets/fonts/PressStart2P.woff") format("woff");
+}
+
 html {
     width: 100vw;
     height: 100vh;
@@ -11,14 +21,13 @@ body,
 }
 
 body {
-    background-color: black;
+    background-color: rgba(0, 0, 0, .5);
 }
 
 .App {
     position: relative;
     padding: 10%;
     display: flex;
-    background-color: black;
 }
 
 ::-webkit-scrollbar {
@@ -56,12 +65,20 @@ body {
     scrollbar-width: none;
 }
 
+.App > div {
+    font-size: 40px;
+    /* line-height: 30px; */
+    font-style: italic;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
 #test {
     border: 2px solid green;
     position: absolute;
-    left: 10px;
-    top: 10px;
-    width: 300px;
-    height: 300px;
-    /* transform: rotate(45deg); */
+    left: 330px;
+    top: 225px;
+    width: 72px;
+    height: 72px;
+    transform: rotate(45deg);
 }
